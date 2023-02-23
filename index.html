@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <script src="./components/rotation.js"></script>
+    <script src="./components/target.js"></script>
+    <script src="./components/coins.js"></script>
+  </head>
+
+  <body>
+    <a-scene background="color:#026F90">
+
+        <a-entity
+        camera="active: true"
+        look-controls
+        position="0 10 25"
+      ></a-entity>
+      <!--Asset Management-->
+      <a-assets timeout="10000">        
+        <a-asset-item
+          id="diver"
+          src="./assets/scuba_driver/scene.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="island_model"
+          src="./assets/island/scene.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="tresure"
+          src="./assets/treasure/model.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="turtle"
+          src="./assets/turtle/scene.gltf"
+        ></a-asset-item>
+        
+      </a-assets>
+
+      
+      <a-entity
+          id="island"
+          gltf-model="#island_model"
+          scale="1 1 1"
+          position="0 -15 -40"
+          targets
+          coins
+        ></a-entity>
+      
+      <a-entity
+        gltf-model="#diver"
+        scale="0.1 0.1 0.1"
+        position="5 0 15"
+        rotation="0 90 -20"        
+        diver-rotation-reader
+      >
+      </a-entity>
+
+      <a-entity
+          gltf-model="#tresure"
+          scale="15 15 15"
+          position="0 -30 -40"
+          rotation="0 90 0"
+        ></a-entity>
+
+        <a-entity
+          gltf-model="#turtle"
+          scale="0.005 0.005 0.005"
+          position="0 1 0"
+          rotation="0 90 0"
+        ></a-entity>
+
+
+
+  
+    </a-scene>
+  </body>
+</html>
